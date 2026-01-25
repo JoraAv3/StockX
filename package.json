@@ -1,0 +1,29 @@
+{
+  "name": "stockx-platform",
+  "version": "1.0.0",
+  "description": "Decentralized AI-Powered Stock Exchange Platform",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend",
+    "smart-contracts",
+    "ai-services"
+  ],
+  "scripts": {
+    "prepare": "concurrently \"npm run dev --workspace=frontend\" \"npm run dev --workspace=backend\"",
+    "dev": "concurrently \"npm run dev --workspace=frontend\" \"npm run dev --workspace=backend\"",
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces",
+    "lint": "npm run lint --workspaces",
+    "install:all": "npm install && npm install --workspaces"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "author": "StockX Team",
+  "license": "MIT"
+}
