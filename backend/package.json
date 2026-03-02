@@ -1,0 +1,29 @@
+{
+  "name": "@stockx/backend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "test": "node --test",
+    "lint": "eslint src --ext .js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.9.2",
+    "ws": "^8.16.0",
+    "axios": "^1.6.2",
+    "zod": "^3.22.4",
+    "redis": "^4.6.11",
+    "bullmq": "^5.3.3",
+    "pg": "^8.11.3",
+    "jsonwebtoken": "^9.0.2",
+    "express-rate-limit": "^7.1.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.55.0",
+    "nodemon": "^3.0.2"
+  }
+}
