@@ -10,6 +10,24 @@ const getMarketData = async (req, res, next) => {
   }
 };
 
+const getMarketSummary = async (req, res, next) => {
+  try {
+    const [tokensListed, marketData] = await Promise.all([
+      tokenService.countTokens(),
+      marketService.getMarketData(),
+    ]);
+
+    res.json({
+      tokensListed,
+      totalTrades: marketData.totalTrades,
+      totalVolume: marketData.totalVolume,
+      generatedAt: new Date().toISOString(),
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 const getTokens = async (req, res, next) => {
   try {
     const filters = {
@@ -70,6 +88,7 @@ const getPriceHistory = async (req, res, next) => {
 
 module.exports = {
   getMarketData,
+  getMarketSummary,
   getTokens,
   getTokenBySymbol,
   getPriceHistory,
